@@ -22,7 +22,7 @@ namespace WebApiAspNet.Controllers
 		[HttpGet]
 		public async Task<ActionResult<List<Autor>>> Get()
 		{
-			return await context.Autores.ToListAsync();
+			return await context.Autores.Include(x => x.Libros).ToListAsync();
 		}
 
 		[HttpPost]
